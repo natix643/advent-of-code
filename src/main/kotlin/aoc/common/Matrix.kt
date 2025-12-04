@@ -31,10 +31,19 @@ class Matrix<T>(
         return listOfNotNull(above(point), bellow(point), leftOf(point), rightOf(point))
     }
 
-    fun above(point: Point): Point? = Point(point.x, point.y - 1).takeIf(::isInBounds)
-    fun bellow(point: Point): Point? = Point(point.x, point.y + 1).takeIf(::isInBounds)
-    fun leftOf(point: Point): Point? = Point(point.x - 1, point.y).takeIf(::isInBounds)
-    fun rightOf(point: Point): Point? = Point(point.x + 1, point.y).takeIf(::isInBounds)
+    fun adjacentPoints(point: Point): List<Point> {
+        return neighbors(point) +
+            listOfNotNull(aboveLeftOf(point), aboveRightOf(point), bellowLeftOf(point), bellowRightOf(point))
+    }
+
+    fun above(point: Point) = Point(point.x, point.y - 1).takeIf(::isInBounds)
+    fun bellow(point: Point) = Point(point.x, point.y + 1).takeIf(::isInBounds)
+    fun leftOf(point: Point) = Point(point.x - 1, point.y).takeIf(::isInBounds)
+    fun rightOf(point: Point) = Point(point.x + 1, point.y).takeIf(::isInBounds)
+    fun aboveLeftOf(point: Point) = Point(point.x - 1, point.y - 1).takeIf(::isInBounds)
+    fun aboveRightOf(point: Point) = Point(point.x + 1, point.y - 1).takeIf(::isInBounds)
+    fun bellowLeftOf(point: Point) = Point(point.x - 1, point.y + 1).takeIf(::isInBounds)
+    fun bellowRightOf(point: Point) = Point(point.x + 1, point.y + 1).takeIf(::isInBounds)
 
     private fun isInBounds(point: Point): Boolean {
         return (point.y in items.indices) && (point.x in items[point.y].indices)
@@ -52,13 +61,14 @@ class Matrix<T>(
     }
 
     fun findAll(value: T): List<Point> {
-        return findAll { it == value }
+        return findAll { item, point -> item == value }
     }
 
-    fun findAll(predicate: (T) -> Boolean): List<Point> {
+    fun findAll(predicate: (T, Point) -> Boolean): List<Point> {
         return items.indices.flatMap { y ->
             items[y].indices.mapNotNull { x ->
-                if (predicate(items[y][x])) Point(x, y) else null
+                val point = Point(x, y)
+                if (predicate(items[y][x], point)) point else null
             }
         }
     }

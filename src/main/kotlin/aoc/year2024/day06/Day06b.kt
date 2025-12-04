@@ -192,7 +192,7 @@ object Day06b {
 
     fun runWithoutExtraObstacles(matrix: Matrix<Tile>, guard: Position): List<Point> {
         walk(matrix, guard)
-        return matrix.findAll { it in Tile.paths() }
+        return matrix.findAll { item, _ -> item in Tile.paths() }
     }
 
     val input = Input.day06
