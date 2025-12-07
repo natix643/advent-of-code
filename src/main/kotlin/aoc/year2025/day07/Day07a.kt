@@ -4,7 +4,10 @@ import aoc.common.Matrix
 import aoc.common.Point
 import aoc.common.expecting
 import aoc.year2025.Input
-import aoc.year2025.day07.Tile.*
+import aoc.year2025.day07.Tile.BEAM
+import aoc.year2025.day07.Tile.SPACE
+import aoc.year2025.day07.Tile.SPLITTER
+import aoc.year2025.day07.Tile.START
 
 object Day07a {
 
