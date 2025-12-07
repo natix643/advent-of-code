@@ -1,6 +1,8 @@
 package aoc.year2024
 
-object Input {
+import aoc.common.InputReader
+
+object Input : InputReader() {
 
     val day01 get() = readLines("Day01.txt")
     val day02 get() = readLines("Day02.txt")
@@ -15,10 +17,4 @@ object Input {
     val day18 get() = readLines("Day18.txt")
     val day19 get() = readLines("Day19.txt")
     val day25 get() = readLines("Day25.txt")
-
-    private fun readLines(filename: String): List<String> {
-        return javaClass.getResourceAsStream("/aoc/year2024/$filename")!!.bufferedReader().use {
-            it.readLines()
-        }
-    }
 }
