@@ -12,4 +12,5 @@ object Input : InputReader() {
     val day06 get() = readLines("Day06.txt")
     val day07 get() = readLines("Day07.txt")
     val day08 get() = readLines("Day08.txt")
+    val day09 get() = readLines("Day09.txt")
 }
