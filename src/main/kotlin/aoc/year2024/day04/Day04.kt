@@ -15,11 +15,6 @@ val example = """
 
 typealias Matrix = List<List<Char>>
 
-data class Point(
-    val x: Int,
-    val y: Int
-)
-
 fun List<String>.toMatrix(): Matrix = map {
     it.toCharArray().toList()
 }

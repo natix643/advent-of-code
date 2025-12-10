@@ -1,5 +1,7 @@
 package aoc.year2024.day04
 
+import aoc.common.Point
+import aoc.common.expecting
 import aoc.year2024.Input
 import kotlin.math.min
 
@@ -87,5 +89,5 @@ object Day04a {
 }
 
 fun main() {
-    println(Day04a.result)
+    println(Day04a.result.expecting(2454))
 }

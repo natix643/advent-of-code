@@ -1,5 +1,7 @@
 package aoc.year2024.day04
 
+import aoc.common.Point
+import aoc.common.expecting
 import aoc.year2024.Input
 
 object Day04b {
@@ -53,5 +55,5 @@ object Day04b {
 }
 
 fun main() {
-    println(Day04b.result)
+    println(Day04b.result.expecting(1858))
 }
