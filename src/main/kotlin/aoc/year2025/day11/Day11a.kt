@@ -39,11 +39,8 @@ object Day11a {
         return count
     }
 
-    val start = parseDevices(
-        input = Input.day11,
-        startName = DeviceName.YOU,
-        endName = DeviceName.OUT
-    )
+    val devices = parseDevices(Input.day11)
+    val start = devices.getValue(DeviceName.YOU)
 
     val result = countPaths(start)
 }

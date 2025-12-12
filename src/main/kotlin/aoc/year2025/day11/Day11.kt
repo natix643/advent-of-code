@@ -1,6 +1,8 @@
 package aoc.year2025.day11
 
-data class Device(
+import aoc.year2025.day11.DeviceName.OUT
+
+class Device(
     val name: String,
     val outputs: MutableList<Device> = mutableListOf()
 ) {
@@ -9,14 +11,8 @@ data class Device(
     }
 }
 
-fun parseDevices(
-    input: List<String>,
-    startName: String,
-    endName: String
-): Device {
-    val devicesByName = mutableMapOf(
-        endName to Device(endName)
-    )
+fun parseDevices(input: List<String>): Map<String, Device> {
+    val devicesByName = mutableMapOf(OUT to Device(OUT))
 
     for (line in input) {
         val device = Device(name = line.split(':')[0])
@@ -32,8 +28,7 @@ fun parseDevices(
             devicesByName.getValue(it)
         })
     }
-
-    return devicesByName.getValue(startName)
+    return devicesByName
 }
 
 object DeviceName {
