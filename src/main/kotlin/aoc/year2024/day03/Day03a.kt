@@ -1,5 +1,6 @@
 package aoc.year2024.day03
 
+import aoc.common.expecting
 import aoc.year2024.Input
 
 object Day03a {
@@ -24,5 +25,5 @@ object Day03a {
 }
 
 fun main() {
-    println(Day03a.result)
+    println(Day03a.result.expecting(153469856))
 }

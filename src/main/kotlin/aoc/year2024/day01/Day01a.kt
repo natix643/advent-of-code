@@ -1,5 +1,6 @@
 package aoc.year2024.day01
 
+import aoc.common.expecting
 import aoc.year2024.Input
 import kotlin.math.absoluteValue
 
@@ -17,5 +18,5 @@ object Day01a {
 }
 
 fun main() {
-    println(Day01a.result)
+    println(Day01a.result.expecting(1223326))
 }
