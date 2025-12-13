@@ -8,3 +8,7 @@ fun <T> T.expecting(expected: Any): T {
     }
     return this
 }
+
+fun Iterable<Int>.product(): Int = fold(1) { acc, i -> acc * i }
+
+fun Iterable<Long>.product(): Long = fold(1) { acc, i -> acc * i }

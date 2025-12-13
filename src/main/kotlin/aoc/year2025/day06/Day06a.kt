@@ -2,6 +2,7 @@ package aoc.year2025.day06
 
 import aoc.common.Matrix
 import aoc.common.expecting
+import aoc.common.product
 import aoc.year2025.Input
 
 object Day06a {
@@ -18,7 +19,7 @@ object Day06a {
         val operator = expression.last()
         return when (operator) {
             "+" -> operands.sum()
-            "*" -> operands.reduce { a, b -> a * b }
+            "*" -> operands.product()
             else -> throw IllegalArgumentException(operator)
         }
     }

@@ -1,6 +1,7 @@
 package aoc.year2025.day12
 
 import aoc.common.expecting
+import aoc.common.product
 import aoc.year2025.Input
 
 object Day12 {
@@ -46,7 +47,7 @@ object Day12 {
 
     val result = regions.count { line ->
         val parts = line.split(": ")
-        val area = parts[0].split("x").map { it.toInt() }.reduce { a, b -> a * b }
+        val area = parts[0].split("x").map { it.toInt() }.product()
         val quantities = parts[1].split(' ').map { it.toInt() }
 
         area >= quantities.sum() * 9

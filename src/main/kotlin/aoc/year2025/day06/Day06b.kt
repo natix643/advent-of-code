@@ -1,6 +1,7 @@
 package aoc.year2025.day06
 
 import aoc.common.expecting
+import aoc.common.product
 import aoc.year2025.Input
 
 object Day06b {
@@ -11,7 +12,7 @@ object Day06b {
     ) {
         fun eval(): Long = when (operator) {
             "+" -> operands.sum()
-            "*" -> operands.reduce { x, y -> x * y }
+            "*" -> operands.product()
             else -> throw IllegalArgumentException(operator)
         }
     }
